@@ -15,10 +15,12 @@
     "cheerio": "^1.0.0",
     "csv-writer": "^1.6.0",
     "fs": "^0.0.1-security",
+    "json2csv": "^6.0.0-alpha.2",
     "puppeteer": "^24.1.1",
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2",
     "string-similarity": "^4.0.4",
-    "uuid": "^11.0.5"
+    "uuid": "^11.0.5",
+    "uuidv4": "^6.2.13"
   }
 }

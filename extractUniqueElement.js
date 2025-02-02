@@ -18,7 +18,7 @@ export const extractUniqueAppElements = async (storeUrl) => {
     let match;
 
     while ((match = appRegex.exec(html)) !== null) {
-      const appName = match[1];
+      let appName = match[1];
       const appUrl = `https://apps.shopify.com/${appName}`;
 
       const isDuplicate = appBlockData.some((app) => app.searchKey === appName);

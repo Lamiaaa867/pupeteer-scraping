@@ -7,7 +7,7 @@ import { searchAppDetails } from "./searchForPlugins.js";
 
 
 const processStores = async () => {
-  const uniqueElements = await extractUniqueAppElements("www.getringo.com");
+  const uniqueElements = await extractUniqueAppElements("www.dorado.com");
 
   if (uniqueElements === undefined) {
     console.error("Data to write is undefined");
