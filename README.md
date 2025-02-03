@@ -55,15 +55,5 @@ Follow these steps to install the dependencies and set up the project:
     "icon": "https://cdn.shopify.com/s/files/1/0001/1234/5678/t/1/assets/loox-icon.png",
     "createdAt": "2025-02-03T12:00:00.000Z",
     "updatedAt": "2025-02-03T12:00:00.000Z"
-  },
-  {
-    "id": "e5f6g7h8",
-    "pluginIndex": 2,
-    "uniqueElement": "https://apps.shopify.com/klaviyo-email-marketing",
-    "name": "Klaviyo - Email Marketing & SMS",
-    "link": "https://apps.shopify.com/klaviyo-email-marketing",
-    "icon": "https://cdn.shopify.com/s/files/1/0001/1234/5678/t/1/assets/klaviyo-icon.png",
-    "createdAt": "2025-02-03T12:00:00.000Z",
-    "updatedAt": "2025-02-03T12:00:00.000Z"
   }
 ]
