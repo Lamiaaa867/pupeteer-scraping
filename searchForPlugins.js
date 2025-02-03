@@ -96,7 +96,7 @@ export const searchAppDetails = async (extractedData) => {
           (elements, pluginIndex, uniqueElement) =>
             elements.map((el, idx) => ({
               id: crypto.randomUUID(),
-              pluginIndex: pluginIndex + idx,
+              pluginIndex: pluginIndex ,
               uniqueElement,
               name: el.getAttribute("data-app-card-name-value") || "Unknown",
               link: el.getAttribute("data-app-card-app-link-value") || "N/A",
