@@ -1,7 +1,7 @@
 import puppeteer from 'puppeteer';
 import fs from 'fs';
 import { parse } from 'json2csv';
-import { v4 as uuidv4 } from 'uuid';
+
 
 // Utility: Normalize text for better matching
 function normalizeForMatch(str) {

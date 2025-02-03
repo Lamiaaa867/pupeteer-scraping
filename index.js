@@ -3,9 +3,6 @@ import fs from "fs";
 
 
 import { searchAppDetails } from "./searchForPlugins.js";
-
-
-
 const processStores = async () => {
   const uniqueElements = await extractUniqueAppElements("www.dorado.com");
 
