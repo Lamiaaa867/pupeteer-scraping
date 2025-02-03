@@ -25,4 +25,45 @@ Follow these steps to install the dependencies and set up the project:
    ```bash
    npm i
    node index.js
-   
+
+## expected-output
+3. **expected output:**
+🔍 Searching for: loox
+✅ Found best match: Loox - Photo Reviews & Referrals on https://apps.shopify.com/search?q=loox
+📦 Stored 1 matching plugin(s) for "loox"
+
+🔍 Searching for: klaviyo
+✅ Found best match: Klaviyo - Email Marketing & SMS on https://apps.shopify.com/search?q=klaviyo
+📦 Stored 1 matching plugin(s) for "klaviyo"
+
+🔍 Searching for: pagefly
+✅ Found best match: PageFly - Advanced Page Builder on https://apps.shopify.com/search?q=pagefly
+📦 Stored 1 matching plugin(s) for "pagefly"
+
+✅ Total Plugins Extracted: 3
+✅ Data saved to shopify_apps_plugins.csv
+✅ Finished all searches.
+ **output example**
+
+[
+  {
+    "id": "a1b2c3d4",
+    "pluginIndex": 1,
+    "uniqueElement": "https://apps.shopify.com/loox",
+    "name": "Loox - Photo Reviews & Referrals",
+    "link": "https://apps.shopify.com/loox",
+    "icon": "https://cdn.shopify.com/s/files/1/0001/1234/5678/t/1/assets/loox-icon.png",
+    "createdAt": "2025-02-03T12:00:00.000Z",
+    "updatedAt": "2025-02-03T12:00:00.000Z"
+  },
+  {
+    "id": "e5f6g7h8",
+    "pluginIndex": 2,
+    "uniqueElement": "https://apps.shopify.com/klaviyo-email-marketing",
+    "name": "Klaviyo - Email Marketing & SMS",
+    "link": "https://apps.shopify.com/klaviyo-email-marketing",
+    "icon": "https://cdn.shopify.com/s/files/1/0001/1234/5678/t/1/assets/klaviyo-icon.png",
+    "createdAt": "2025-02-03T12:00:00.000Z",
+    "updatedAt": "2025-02-03T12:00:00.000Z"
+  }
+]
