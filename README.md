@@ -19,7 +19,8 @@ Follow these steps to install the dependencies and set up the project:
    mkdir shopify-app-scraper
    cd shopify-app-scraper
 
-   ## Running-the-script
+## Running the script
+2. **to run the script:**
      If you're running the script:
    ```bash
    npm i
