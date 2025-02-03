@@ -43,7 +43,7 @@ Follow these steps to install the dependencies and set up the project:
 ✅ Total Plugins Extracted: 3
 ✅ Data saved to shopify_apps_plugins.csv
 ✅ Finished all searches.
-## 🛠️ Technologies Used
+## technologies used
 
 This project utilizes the following technologies and tools:
 
