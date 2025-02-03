@@ -2,28 +2,24 @@ import puppeteer from "puppeteer";
 import fs from "fs";
 import { parse } from "json2csv";
 
-// Utility: Normalize text for better matching
 function normalizeForMatch(str) {
   return str
     .toLowerCase()
-    .replace(/-/g, " ") // Replace hyphens with spaces
-    .replace(/[^a-z0-9\s]/g, "") // Remove non-alphanumeric characters
-    .split(/\s+/) // Split into words
-    .sort() // Sort for consistent comparison
-    .join(" "); // Rejoin into a single string
+    .replace(/-/g, " ") 
+    .replace(/[^a-z0-9\s]/g, "") 
+    .split(/\s+/) 
+    .sort() 
+    .join(" "); 
 }
-
-// Utility: Calculate how similar two strings are (word match ratio)
 function calculateMatchScore(target, candidate) {
   const targetWords = new Set(target.split(" "));
   const candidateWords = new Set(candidate.split(" "));
   const intersection = [...targetWords].filter((word) =>
     candidateWords.has(word)
   );
-  return intersection.length / targetWords.size; // Ratio of matched words
+  return intersection.length / targetWords.size;
 }
 
-// Utility: Find the best matching plugin from a list
 function findBestMatch(target, pluginsData) {
   let bestMatch = null;
   let highestScore = 0;
@@ -41,7 +37,6 @@ function findBestMatch(target, pluginsData) {
   return bestMatch;
 }
 
-// Utility: Save data to CSV
 function saveDataToCSV(data, filename = "shopify_apps_plugins.csv") {
   try {
     const csv = parse(data, {
@@ -63,7 +58,6 @@ function saveDataToCSV(data, filename = "shopify_apps_plugins.csv") {
   }
 }
 
-// Main Function: Search for app details
 export const searchAppDetails = async (extractedData) => {
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
@@ -96,12 +90,12 @@ export const searchAppDetails = async (extractedData) => {
 
         let uniqueElement = app.element;
 
-        // Extract plugin details efficiently using Promise.all
+      
         let pluginsData = await page.$$eval(
           '.tw-w-full[data-controller="app-card"]',
           (elements, pluginIndex, uniqueElement) =>
             elements.map((el, idx) => ({
-              id: crypto.randomUUID(), // Use native UUID generator
+              id: crypto.randomUUID(),
               pluginIndex: pluginIndex + idx,
               uniqueElement,
               name: el.getAttribute("data-app-card-name-value") || "Unknown",
@@ -142,7 +136,7 @@ export const searchAppDetails = async (extractedData) => {
         }
 
         pluginIndex += pluginsData.length;
-        await new Promise((resolve) => setTimeout(resolve, 1500)); // Reduce wait time
+        await new Promise((resolve) => setTimeout(resolve, 1500)); 
 
         const nextPageButton = await page.$('a[rel="next"]');
         if (nextPageButton) {
@@ -160,7 +154,7 @@ export const searchAppDetails = async (extractedData) => {
       );
     }
 
-    // Save results
+  
     if (allSearchResults.length > 0) {
       saveDataToCSV(allSearchResults);
       fs.writeFileSync(

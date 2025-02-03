@@ -1,32 +1,32 @@
 [
   {
-    "id": "115f3c4e-d6ee-497b-99ff-54f78b7801d2",
+    "id": "0a126bce-1c96-4f36-9375-f196baf7175e",
     "pluginIndex": 5,
     "uniqueElement": "https://apps.shopify.com/elevar-conversion-tracking",
     "name": "Elevar Conversion Tracking",
-    "link": "https://apps.shopify.com/gtm-datalayer-by-elevar?search_id=bdff3aa8-fea1-4027-b925-e4b58d639e70&surface_detail=elevar-conversion-tracking&surface_inter_position=1&surface_intra_position=5&surface_type=search",
+    "link": "https://apps.shopify.com/gtm-datalayer-by-elevar?search_id=805fcf5b-0618-4769-b5ed-028e95ebd23f&surface_detail=elevar-conversion-tracking&surface_inter_position=1&surface_intra_position=5&surface_type=search",
     "icon": "https://cdn.shopify.com/app-store/listing_images/e6748a47b626678883beaf91f28ca7e3/icon/COywqozq1vwCEAE=.jpeg",
-    "createdAt": "2025-02-03T08:56:34.401Z",
-    "updatedAt": "2025-02-03T08:56:34.401Z"
+    "createdAt": "2025-02-03T10:51:46.451Z",
+    "updatedAt": "2025-02-03T10:51:46.451Z"
   },
   {
-    "id": "c8fdd5b1-04be-47c4-8482-5c712828efe2",
-    "pluginIndex": 1,
-    "uniqueElement": "https://apps.shopify.com/attentive",
-    "name": "Attentive: SMS + MMS Marketing",
-    "link": "https://apps.shopify.com/attentive?search_id=7343ab6d-82af-4c13-95c6-1c1dd81a2681&shallow_install_type=search&surface_detail=attentive&surface_inter_position=1&surface_intra_position=1&surface_type=search",
-    "icon": "https://cdn.shopify.com/app-store/listing_images/5da194592c59cd145b825b53019db33c/icon/CIKipOGl7-8CEAE=.png",
-    "createdAt": "2025-02-03T08:56:36.229Z",
-    "updatedAt": "2025-02-03T08:56:36.230Z"
-  },
-  {
-    "id": "a3a1394a-c313-4360-b8cc-090c2a9db68d",
+    "id": "ac4a2daa-43e9-4b52-8aca-1115a7a2b3a8",
     "pluginIndex": 5,
     "uniqueElement": "https://apps.shopify.com/klaviyo-email-marketing-sms",
     "name": "Klaviyo: Email Marketing & SMS",
-    "link": "https://apps.shopify.com/klaviyo-email-marketing?search_id=fa98c4c9-9ba6-438c-b677-3d0d3cf0141e&surface_detail=klaviyo-email-marketing-sms&surface_inter_position=1&surface_intra_position=5&surface_type=search",
+    "link": "https://apps.shopify.com/klaviyo-email-marketing?search_id=243f5f7d-f345-4eb8-b020-6cdc6dbfca7a&surface_detail=klaviyo-email-marketing-sms&surface_inter_position=1&surface_intra_position=5&surface_type=search",
     "icon": "https://cdn.shopify.com/app-store/listing_images/5edd9000b933a8fa88c152d1e498531f/icon/CP6B2OOv3PYCEAE=.png",
-    "createdAt": "2025-02-03T08:56:38.367Z",
-    "updatedAt": "2025-02-03T08:56:38.367Z"
+    "createdAt": "2025-02-03T10:51:48.048Z",
+    "updatedAt": "2025-02-03T10:51:48.048Z"
+  },
+  {
+    "id": "ca87f190-b2bc-4775-a706-29c29278ef11",
+    "pluginIndex": 1,
+    "uniqueElement": "https://apps.shopify.com/attentive",
+    "name": "Attentive: SMS + MMS Marketing",
+    "link": "https://apps.shopify.com/attentive?search_id=83da9b6f-2122-4448-aebf-42ca66ffdd99&shallow_install_type=search&surface_detail=attentive&surface_inter_position=1&surface_intra_position=1&surface_type=search",
+    "icon": "https://cdn.shopify.com/app-store/listing_images/5da194592c59cd145b825b53019db33c/icon/CIKipOGl7-8CEAE=.png",
+    "createdAt": "2025-02-03T10:51:49.876Z",
+    "updatedAt": "2025-02-03T10:51:49.876Z"
   }
 ]
