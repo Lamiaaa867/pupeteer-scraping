@@ -43,17 +43,37 @@ Follow these steps to install the dependencies and set up the project:
 ✅ Total Plugins Extracted: 3
 ✅ Data saved to shopify_apps_plugins.csv
 ✅ Finished all searches.
- **output example**
+## 🛠️ Technologies Used
 
-[
-  {
-    "id": "a1b2c3d4",
-    "pluginIndex": 1,
-    "uniqueElement": "https://apps.shopify.com/loox",
-    "name": "Loox - Photo Reviews & Referrals",
-    "link": "https://apps.shopify.com/loox",
-    "icon": "https://cdn.shopify.com/s/files/1/0001/1234/5678/t/1/assets/loox-icon.png",
-    "createdAt": "2025-02-03T12:00:00.000Z",
-    "updatedAt": "2025-02-03T12:00:00.000Z"
-  }
-]
+This project utilizes the following technologies and tools:
+
+### **Programming Languages & Runtime**
+- **JavaScript (ES6+)** – Core language for scripting  
+- **Node.js** – JavaScript runtime for executing Puppeteer  
+
+### **Libraries & Packages**
+- **[Puppeteer](https://pptr.dev/)** – Headless Chrome automation for web scraping  
+- **[json2csv](https://www.npmjs.com/package/json2csv)** – Converts JSON data to CSV format  
+- **[fs (File System)](https://nodejs.org/api/fs.html)** – Reads/Writes data files (`.json`, `.csv`)  
+
+### **Web Technologies**
+- **Shopify App Store** – Target website for extracting app data  
+- **Google Search (optional)** – Used to enhance search functionality  
+
+### **Data Processing & Extraction**
+- **String Normalization & Similarity Matching** – Compares and extracts relevant app data  
+- **Regex & DOM Parsing** – Extracts structured data from Shopify app store search results  
+
+### **Output Formats**
+- **JSON** – Stores structured data for further processing  
+- **CSV** – Allows easy spreadsheet analysis and reporting  
+
+---
+
+📌 **Why These Technologies?**  
+- **Puppeteer** enables automated browsing and data extraction  
+- **json2csv** makes it easy to convert scraped data into a structured format  
+- **Regex & DOM Parsing** allow precise data filtering from web pages  
+- **CSV & JSON** provide structured output for further analysis  
+
+
