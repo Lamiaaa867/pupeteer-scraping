@@ -2,21 +2,35 @@ import puppeteer from "puppeteer";
 import fs from "fs";
 import { parse } from "json2csv";
 
+const commonCorrections = {
+  "triplewhale": "triple whale",
+  "looxio": "loox",
+  "gorgiaschat": "gorgias chat",
+  "judge me": "judge.me",
+  "klaviyoio": "klaviyo"
+};
+
 function normalizeForMatch(str) {
-  return str
-    .toLowerCase()
+  let normalized = str.toLowerCase()
     .replace(/-/g, " ") 
     .replace(/[^a-z0-9\s]/g, "") 
-    .split(/\s+/) 
-    .sort() 
-    .join(" "); 
+    .split(/\s+/)
+    .sort()
+    .join(" ");
+
+  // Apply corrections dynamically
+  for (const [incorrect, correct] of Object.entries(commonCorrections)) {
+    const regex = new RegExp(`\\b${incorrect}\\b`, "gi");
+    normalized = normalized.replace(regex, correct);
+  }
+
+  return normalized;
 }
+
 function calculateMatchScore(target, candidate) {
   const targetWords = new Set(target.split(" "));
   const candidateWords = new Set(candidate.split(" "));
-  const intersection = [...targetWords].filter((word) =>
-    candidateWords.has(word)
-  );
+  const intersection = [...targetWords].filter((word) => candidateWords.has(word));
   return intersection.length / targetWords.size;
 }
 
@@ -40,16 +54,7 @@ function findBestMatch(target, pluginsData) {
 function saveDataToCSV(data, filename = "shopify_apps_plugins.csv") {
   try {
     const csv = parse(data, {
-      fields: [
-        "id",
-        "uniqueElement",
-        "pluginIndex",
-        "name",
-        "link",
-        "icon",
-        "createdAt",
-        "updatedAt",
-      ],
+      fields: ["id", "uniqueElement", "pluginIndex", "name", "link", "icon", "createdAt", "updatedAt"],
     });
     fs.writeFileSync(filename, csv);
     console.log(`✅ Data saved to ${filename}`);
@@ -68,59 +73,44 @@ export const searchAppDetails = async (extractedData) => {
 
     for (const app of extractedData) {
       if (!app.searchKey) continue;
-
+const normalize= normalizeForMatch(app.searchKey)
       console.log(`🔍 Searching for: ${app.searchKey}`);
-      let searchUrl = `https://apps.shopify.com/search?q=${encodeURIComponent(
-        app.searchKey
-      )}`;
+      let searchUrl = `https://apps.shopify.com/search?q=${encodeURIComponent(normalize)}`;
       let appResults = [];
-      let pluginIndex = 1;
       let foundDesiredPlugin = false;
 
       while (searchUrl && !foundDesiredPlugin) {
         try {
           await page.goto(searchUrl, { waitUntil: "networkidle2" });
-          await page.waitForSelector(".tw-container #search_app_grid", {
-            timeout: 5000,
-          });
+          await page.waitForSelector(".tw-container #search_app_grid", { timeout: 5000 });
         } catch (e) {
           console.error(`❌ No results found for: ${app.searchKey}`);
           break;
         }
 
         let uniqueElement = app.element;
-
-      
-        let pluginsData = await page.$$eval(
-          '.tw-w-full[data-controller="app-card"]',
-          (elements, pluginIndex, uniqueElement) =>
-            elements.map((el, idx) => ({
-              id: crypto.randomUUID(),
-              pluginIndex: pluginIndex ,
-              uniqueElement,
-              name: el.getAttribute("data-app-card-name-value") || "Unknown",
-              link: el.getAttribute("data-app-card-app-link-value") || "N/A",
-              icon: el.getAttribute("data-app-card-icon-url-value") || "N/A",
-              createdAt: new Date().toISOString(),
-              updatedAt: new Date().toISOString(),
-            })),
-          pluginIndex,
-          uniqueElement
-        );
+        let pluginsData = await page.$$eval('.tw-w-full[data-controller="app-card"]', (elements, uniqueElement) =>
+          elements.map((el) => ({
+            id: crypto.randomUUID(),
+            uniqueElement,
+            name: el.getAttribute("data-app-card-name-value") || "Unknown",
+            link: el.getAttribute("data-app-card-app-link-value") || "N/A",
+            icon: el.getAttribute("data-app-card-icon-url-value") || "N/A",
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
+          }))
+        , uniqueElement);
 
         let targetValue = app.searchKey;
         if (app.element) {
           try {
             targetValue = new URL(app.element).pathname.split("/").pop();
           } catch (error) {
-            console.error(
-              "⚠️ Error extracting slug from app.element:",
-              error.message
-            );
+            console.error("⚠️ Error extracting slug from app.element:", error.message);
           }
         }
-        const normalizedTarget = normalizeForMatch(targetValue);
 
+        const normalizedTarget = normalizeForMatch(targetValue);
         let bestMatch = findBestMatch(normalizedTarget, pluginsData);
 
         if (bestMatch) {
@@ -130,12 +120,9 @@ export const searchAppDetails = async (extractedData) => {
           foundDesiredPlugin = true;
           break;
         } else {
-          console.log(
-            `➡️ No exact match on ${searchUrl}. Checking next page...`
-          );
+          console.log(`➡️ No exact match on ${searchUrl}. Checking next page...`);
         }
 
-        pluginIndex += pluginsData.length;
         await new Promise((resolve) => setTimeout(resolve, 1500)); 
 
         const nextPageButton = await page.$('a[rel="next"]');
@@ -149,18 +136,12 @@ export const searchAppDetails = async (extractedData) => {
       }
 
       allSearchResults.push(...appResults);
-      console.log(
-        `📦 Stored ${appResults.length} matching plugin(s) for "${app.searchKey}"`
-      );
+      console.log(`📦 Stored ${appResults.length} matching plugin(s) for "${app.searchKey}"`);
     }
 
-  
     if (allSearchResults.length > 0) {
       saveDataToCSV(allSearchResults);
-      fs.writeFileSync(
-        "shopify_apps_plugins.json",
-        JSON.stringify(allSearchResults, null, 2)
-      );
+      fs.writeFileSync("shopify_apps_plugins.json", JSON.stringify(allSearchResults, null, 2));
       console.log(`✅ Total Plugins Extracted: ${totalPluginCount}`);
     } else {
       console.log("⚠️ No plugins found.");
