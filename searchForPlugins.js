@@ -1,21 +1,28 @@
 import puppeteer from "puppeteer";
 import fs from "fs";
 import { parse } from "json2csv";
+import crypto from "crypto";
 
+// Common name corrections for better matching
 const commonCorrections = {
   "triplewhale": "triple whale",
-  "looxio": "loox",
+  "upcart": "up cart",
+  "kaching-bundles": "kaching bundles",
+  "product-options": "product options",
+  "looxio": "Loox",
   "gorgiaschat": "gorgias chat",
   "judge me": "judge.me",
   "klaviyoio": "klaviyo"
 };
 
+// Normalize names to improve matching
 function normalizeForMatch(str) {
-  let normalized = str.toLowerCase()
+  if (!str) return "";
+  let normalized = str
+    .toLowerCase()
     .replace(/-/g, " ") 
     .replace(/[^a-z0-9\s]/g, "") 
     .split(/\s+/)
-    .sort()
     .join(" ");
 
   // Apply corrections dynamically
@@ -27,34 +34,42 @@ function normalizeForMatch(str) {
   return normalized;
 }
 
+// Calculate similarity score
 function calculateMatchScore(target, candidate) {
+  if (!target || !candidate) return 0;
+  
   const targetWords = new Set(target.split(" "));
   const candidateWords = new Set(candidate.split(" "));
   const intersection = [...targetWords].filter((word) => candidateWords.has(word));
+  
   return intersection.length / targetWords.size;
 }
 
+// Find the best match plugin name
 function findBestMatch(target, pluginsData) {
   let bestMatch = null;
   let highestScore = 0;
 
   for (const plugin of pluginsData) {
     if (!plugin.name) continue;
+
     const normalizedPluginName = normalizeForMatch(plugin.name);
     const score = calculateMatchScore(target, normalizedPluginName);
-
+   
     if (score > highestScore) {
       highestScore = score;
       bestMatch = plugin;
     }
   }
+
   return bestMatch;
 }
 
-function saveDataToCSV(data, filename = "shopify_apps_plugins.csv") {
+// Save data to CSV
+function saveDataToCSV(data, filename = "digifeel_apps_plugins.csv") {
   try {
     const csv = parse(data, {
-      fields: ["id", "uniqueElement", "pluginIndex", "name", "link", "icon", "createdAt", "updatedAt"],
+      fields: ["id", "uniqueElement", "name", "link", "icon", "createdAt", "updatedAt"],
     });
     fs.writeFileSync(filename, csv);
     console.log(`✅ Data saved to ${filename}`);
@@ -63,6 +78,7 @@ function saveDataToCSV(data, filename = "shopify_apps_plugins.csv") {
   }
 }
 
+// Search and extract Shopify app details
 export const searchAppDetails = async (extractedData) => {
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
@@ -73,9 +89,9 @@ export const searchAppDetails = async (extractedData) => {
 
     for (const app of extractedData) {
       if (!app.searchKey) continue;
-const normalize= normalizeForMatch(app.searchKey)
+
       console.log(`🔍 Searching for: ${app.searchKey}`);
-      let searchUrl = `https://apps.shopify.com/search?q=${encodeURIComponent(normalize)}`;
+      let searchUrl = `https://apps.shopify.com/search?q=${encodeURIComponent(app.searchKey)}`;
       let appResults = [];
       let foundDesiredPlugin = false;
 
@@ -89,7 +105,7 @@ const normalize= normalizeForMatch(app.searchKey)
         }
 
         let uniqueElement = app.element;
-        let pluginsData = await page.$$eval('.tw-w-full[data-controller="app-card"]', (elements, uniqueElement) =>
+        let pluginsData = await page.$$eval('.tw-w-full[data-controller="app-card"]', (elements,uniqueElement) =>
           elements.map((el) => ({
             id: crypto.randomUUID(),
             uniqueElement,
@@ -98,17 +114,9 @@ const normalize= normalizeForMatch(app.searchKey)
             icon: el.getAttribute("data-app-card-icon-url-value") || "N/A",
             createdAt: new Date().toISOString(),
             updatedAt: new Date().toISOString(),
-          }))
-        , uniqueElement);
-
+          })));
         let targetValue = app.searchKey;
-        if (app.element) {
-          try {
-            targetValue = new URL(app.element).pathname.split("/").pop();
-          } catch (error) {
-            console.error("⚠️ Error extracting slug from app.element:", error.message);
-          }
-        }
+  
 
         const normalizedTarget = normalizeForMatch(targetValue);
         let bestMatch = findBestMatch(normalizedTarget, pluginsData);
@@ -123,7 +131,7 @@ const normalize= normalizeForMatch(app.searchKey)
           console.log(`➡️ No exact match on ${searchUrl}. Checking next page...`);
         }
 
-        await new Promise((resolve) => setTimeout(resolve, 1500)); 
+        await new Promise((resolve) => setTimeout(resolve, 1500));
 
         const nextPageButton = await page.$('a[rel="next"]');
         if (nextPageButton) {
