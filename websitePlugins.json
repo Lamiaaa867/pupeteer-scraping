@@ -1,14 +1,10 @@
 [
   {
-    "element": "https://apps.shopify.com/elevar-conversion-tracking",
-    "searchKey": "elevar-conversion-tracking"
+    "element": "https://apps.shopify.com/candy-rack",
+    "searchKey": "candy-rack"
   },
   {
     "element": "https://apps.shopify.com/klaviyo-email-marketing-sms",
     "searchKey": "klaviyo-email-marketing-sms"
-  },
-  {
-    "element": "https://apps.shopify.com/attentive",
-    "searchKey": "attentive"
   }
 ]

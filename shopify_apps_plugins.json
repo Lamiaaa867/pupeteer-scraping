@@ -1,32 +1,18 @@
 [
   {
-    "id": "0a126bce-1c96-4f36-9375-f196baf7175e",
-    "pluginIndex": 5,
-    "uniqueElement": "https://apps.shopify.com/elevar-conversion-tracking",
-    "name": "Elevar Conversion Tracking",
-    "link": "https://apps.shopify.com/gtm-datalayer-by-elevar?search_id=805fcf5b-0618-4769-b5ed-028e95ebd23f&surface_detail=elevar-conversion-tracking&surface_inter_position=1&surface_intra_position=5&surface_type=search",
-    "icon": "https://cdn.shopify.com/app-store/listing_images/e6748a47b626678883beaf91f28ca7e3/icon/COywqozq1vwCEAE=.jpeg",
-    "createdAt": "2025-02-03T10:51:46.451Z",
-    "updatedAt": "2025-02-03T10:51:46.451Z"
+    "id": "7ab957cf-7352-4488-81cb-7fcb06d9f8bb",
+    "name": "Candy Rack | All‑in‑One Upsell",
+    "link": "https://apps.shopify.com/candyrack?search_id=1125cfd8-47ee-4ddb-b222-4b435803b4ce&surface_detail=candy-rack&surface_inter_position=1&surface_intra_position=5&surface_type=search",
+    "icon": "https://cdn.shopify.com/app-store/listing_images/4053cc5063e1ba6f735695ab645e7b88/icon/CKH10fvejosDEAE=.png",
+    "createdAt": "2025-02-11T14:12:10.123Z",
+    "updatedAt": "2025-02-11T14:12:10.123Z"
   },
   {
-    "id": "ac4a2daa-43e9-4b52-8aca-1115a7a2b3a8",
-    "pluginIndex": 5,
-    "uniqueElement": "https://apps.shopify.com/klaviyo-email-marketing-sms",
+    "id": "19674580-e2c9-40f7-83db-f0ca8511e5a2",
     "name": "Klaviyo: Email Marketing & SMS",
-    "link": "https://apps.shopify.com/klaviyo-email-marketing?search_id=243f5f7d-f345-4eb8-b020-6cdc6dbfca7a&surface_detail=klaviyo-email-marketing-sms&surface_inter_position=1&surface_intra_position=5&surface_type=search",
+    "link": "https://apps.shopify.com/klaviyo-email-marketing?search_id=e62c9ac4-ee5e-4903-bdeb-ac609cbd8cf4&surface_detail=klaviyo-email-marketing-sms&surface_inter_position=1&surface_intra_position=5&surface_type=search",
     "icon": "https://cdn.shopify.com/app-store/listing_images/5edd9000b933a8fa88c152d1e498531f/icon/CP6B2OOv3PYCEAE=.png",
-    "createdAt": "2025-02-03T10:51:48.048Z",
-    "updatedAt": "2025-02-03T10:51:48.048Z"
-  },
-  {
-    "id": "ca87f190-b2bc-4775-a706-29c29278ef11",
-    "pluginIndex": 1,
-    "uniqueElement": "https://apps.shopify.com/attentive",
-    "name": "Attentive: SMS + MMS Marketing",
-    "link": "https://apps.shopify.com/attentive?search_id=83da9b6f-2122-4448-aebf-42ca66ffdd99&shallow_install_type=search&surface_detail=attentive&surface_inter_position=1&surface_intra_position=1&surface_type=search",
-    "icon": "https://cdn.shopify.com/app-store/listing_images/5da194592c59cd145b825b53019db33c/icon/CIKipOGl7-8CEAE=.png",
-    "createdAt": "2025-02-03T10:51:49.876Z",
-    "updatedAt": "2025-02-03T10:51:49.876Z"
+    "createdAt": "2025-02-11T14:12:11.589Z",
+    "updatedAt": "2025-02-11T14:12:11.589Z"
   }
 ]
