@@ -9,7 +9,7 @@ export const extractShopifyPlugins = async (storeUrl) => {
     const { data: html } = await axios.get(validUrl);
     const $ = cheerio.load(html);
 
-   const appBlockData=new Set()
+const appBlockData=new Set()
 
     // Extract Shopify app blocks from HTML comments
     const appRegex = /<!-- BEGIN app block: shopify:\/\/apps\/([\w-]+)\/blocks\/([\w-]+)\/([\w-]+)/g;

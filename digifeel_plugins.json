@@ -24,12 +24,12 @@
     "element": "https://maps.googleapis.com/maps/api/js?key=AIzaSyATw2iOsajZJQQkhpvBb9xRNr8j8Rd9EGQ&loading=async&libraries=places"
   },
   {
-    "searchKey": "videowise",
-    "element": "https://assets.videowise.com/style.css.gz"
-  },
-  {
     "searchKey": "klaviyo",
     "element": "https://static.klaviyo.com/onsite/js/XBffzS/klaviyo.js?company_id=XBffzS"
+  },
+  {
+    "searchKey": "videowise",
+    "element": "https://assets.videowise.com/style.css.gz"
   },
   {
     "searchKey": "product-options",

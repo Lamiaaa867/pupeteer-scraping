@@ -1,14 +1,26 @@
 [
   {
-    "element": "https://apps.shopify.com/elevar-conversion-tracking",
-    "searchKey": "elevar-conversion-tracking"
+    "element": "https://apps.shopify.com/product-options-variant-option",
+    "searchKey": "product-options-variant-option"
+  },
+  {
+    "element": "https://apps.shopify.com/weglot-translate-your-store",
+    "searchKey": "weglot-translate-your-store"
+  },
+  {
+    "element": "https://apps.shopify.com/triplewhale",
+    "searchKey": "triplewhale"
+  },
+  {
+    "element": "https://apps.shopify.com/eg-auto-add-to-cart",
+    "searchKey": "eg-auto-add-to-cart"
+  },
+  {
+    "element": "https://apps.shopify.com/videowise-video-platform-ugc",
+    "searchKey": "videowise-video-platform-ugc"
   },
   {
     "element": "https://apps.shopify.com/klaviyo-email-marketing-sms",
     "searchKey": "klaviyo-email-marketing-sms"
-  },
-  {
-    "element": "https://apps.shopify.com/attentive",
-    "searchKey": "attentive"
   }
 ]
