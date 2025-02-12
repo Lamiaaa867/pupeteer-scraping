@@ -80,7 +80,17 @@ function saveDataToCSV(data, filename = "digifeel_apps_plugins.csv") {
 
 // Search and extract Shopify app details
 export const searchAppDetails = async (extractedData) => {
-  const browser = await puppeteer.launch({ headless: false });
+  // const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch({
+    executablePath: '/usr/bin/chromium-browser', // Use Alpine-installed Chromium
+    args: [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-gpu",
+      "--disable-dev-shm-usage",
+      "--single-process"
+    ]
+  });
   const page = await browser.newPage();
 
   try {

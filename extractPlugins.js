@@ -10,7 +10,17 @@ function extractPluginName(url) {
 }
 
 export const extractShopifyPluginsWithPupeteer = async () => {
-  const browser = await puppeteer.launch({ headless: false });
+  // const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch({
+    executablePath: '/usr/bin/chromium-browser', // Use Alpine-installed Chromium
+    args: [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-gpu",
+      "--disable-dev-shm-usage",
+      "--single-process"
+    ]
+  });
   const page = await browser.newPage();
 
   console.log("🔍 Visiting digifeel.io...");
