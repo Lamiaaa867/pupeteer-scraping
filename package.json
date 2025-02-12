@@ -17,7 +17,7 @@
     "fs": "^0.0.1-security",
     "geoip-lite": "^1.4.10",
     "json2csv": "^6.0.0-alpha.2",
-    "puppeteer": "^24.1.1",
+    "puppeteer": "^24.2.0",
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2",
     "string-similarity": "^4.0.4",
