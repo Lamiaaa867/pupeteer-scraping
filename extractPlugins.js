@@ -2,7 +2,7 @@ import puppeteer from "puppeteer";
 
 // Regex pattern to match known Shopify & Social Media plugins
 const pluginRegex =
-  /(klaviyo|rebuy|aftersell|candyrack|cart-drawer|upcart|triplewhale|product-options|kaching-bundles|Boost|Videowise|Richpanel|productreviews|trustpilot|goaffpro|gorgias|trackifyx|weglot|loox|facebook|instagram|google|snapchat|judge\.me)/i;
+  /(klaviyo|rebuy|aftersell|candyrack|cartc-drawer|upcart|triplewhale|avis-options|kaching-bundles|Boost|Videowise|Richpanel|productreviews|trustpilot|goaffpro|gorgias|trackifyx|weglot|loox|facebook|instagram|google|snapchat|judge\.me)/i;
 
 function extractPluginName(url) {
   const match = url.match(pluginRegex);

@@ -1,7 +1,7 @@
 [
   {
     "searchKey": "richpanel",
-    "element": "https://cdn.richpanel.com/js/micro-app.js?version=20250211"
+    "element": "https://cdn.richpanel.com/js/micro-app.js?version=20250212"
   },
   {
     "searchKey": "goaffpro",
@@ -24,20 +24,20 @@
     "element": "https://maps.googleapis.com/maps/api/js?key=AIzaSyATw2iOsajZJQQkhpvBb9xRNr8j8Rd9EGQ&loading=async&libraries=places"
   },
   {
-    "searchKey": "klaviyo",
-    "element": "https://static.klaviyo.com/onsite/js/XBffzS/klaviyo.js?company_id=XBffzS"
-  },
-  {
     "searchKey": "videowise",
     "element": "https://assets.videowise.com/style.css.gz"
   },
   {
-    "searchKey": "product-options",
-    "element": "//cdn.shopify.com/extensions/ec3849ba-60c9-4bd7-b7db-af611e157c5b/avis-options-v1.4.161.18/assets/apo-product-options_v2.min.css"
+    "searchKey": "klaviyo",
+    "element": "https://static.klaviyo.com/onsite/js/XBffzS/klaviyo.js?company_id=XBffzS"
+  },
+  {
+    "searchKey": "avis-options",
+    "element": "//cdn.shopify.com/extensions/521f30fc-fc98-4b34-9034-b2524ffe80a5/avis-options-v1.4.162.1/assets/style.min.css"
   },
   {
     "searchKey": "aftersell",
-    "element": "https://cdn.shopify.com/extensions/64213158-b52f-4214-b0db-1a27ae00178b/aftersell-183/assets/aftersell-utm-triggers.js"
+    "element": "https://cdn.shopify.com/extensions/163255ea-1576-4c5e-94e6-929ba8b61c64/aftersell-186/assets/aftersell-utm-triggers.js"
   },
   {
     "searchKey": "upcart",
@@ -45,6 +45,6 @@
   },
   {
     "searchKey": "kaching-bundles",
-    "element": "https://cdn.shopify.com/extensions/a462b80a-a18b-43a1-b3cc-beb408525cef/kaching-bundles-655/assets/kaching-bundles.js"
+    "element": "https://cdn.shopify.com/extensions/83b8e6ec-44e2-429d-8267-481e3007b2a1/kaching-bundles-657/assets/kaching-bundles.js"
   }
 ]
